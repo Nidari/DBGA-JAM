@@ -8,7 +8,7 @@ public class Prova : MonoBehaviour
     public GameObject tamburo;
     public int ciccio;
     public GameObject[] ammoBoxes = new GameObject[6];
-    public Gamestate State = Gamestate.Starting;
+    public PlayerState State = PlayerState.Starting;
     public float time = 0;
     public float timing = 5;
     public int randomPick;
@@ -64,17 +64,17 @@ public class Prova : MonoBehaviour
 
     public void StateUpdate()
     {
-        if (State == Gamestate.Charge)
+        if (State == PlayerState.Charge)
         {
             tamburo.transform.eulerAngles += new Vector3(0, 0, ciccio * Time.deltaTime);
             time += Time.deltaTime;
             myPosition = this.transform.eulerAngles;
         }
-        else if (State == Gamestate.BulletPick && time > timing)
+        else if (State == PlayerState.BulletPick && time > timing)
         {
             GetBulletPosition();
         }
-        else if (State == Gamestate.Shoot)
+        else if (State == PlayerState.Shoot)
         {
         }
     }

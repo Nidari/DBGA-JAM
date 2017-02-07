@@ -2,14 +2,14 @@
 using System.Collections;
 using UnityEditor.SceneManagement;
 
-public enum Gamestate { Starting, Charge, BulletPick, Shoot }
+public enum PlayerState { Starting, Charge, BulletPick, Shoot }
 
 public class PlayerControls : MonoBehaviour
 {
 
     Prova provaLinker;
 
-    public Gamestate State = Gamestate.Starting;
+    public PlayerState State = PlayerState.Starting;
     public int randomPick;
     public float time = 0;
     public float timing = 5;
@@ -37,18 +37,22 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.Log("PROVA");
 
-        if (State == Gamestate.Starting)
+        if (State == PlayerState.Starting)
         {
-            State = Gamestate.Charge;
+            State = PlayerState.Charge;
         }
-        else if (State == Gamestate.Charge && time > timing)
+        else if (State == PlayerState.Charge && time > timing)
         {
-            State = Gamestate.BulletPick;
+            State = PlayerState.BulletPick;
             randomPick = Random.Range(0, 5);
         }
-        else if (State == Gamestate.Shoot)
+        else if (State == PlayerState.Shoot)
         {
         }
+
+        provaLinker.StateUpdate();
+
+
 
     }
 
