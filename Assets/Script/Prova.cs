@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Gamestate { Starting, Charge, BulletPick, Shoot }
+//public enum Gamestate { Starting, Charge, BulletPick, Shoot }
 
 public class Prova : MonoBehaviour
 {
@@ -38,23 +38,23 @@ public class Prova : MonoBehaviour
     private void Update()
     {
         //Mathf.Lerp()
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (State == Gamestate.Starting)
-            {
-                State = Gamestate.Charge;
-            }
-            else if (State == Gamestate.Charge && time > timing)
-            {
-                State = Gamestate.BulletPick;
-                randomPick = Random.Range(0, 5);
-            }
-            else if (State == Gamestate.Shoot)
-            {
-            }
-        }
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    if (State == Gamestate.Starting)
+        //    {
+        //        State = Gamestate.Charge;
+        //    }
+        //    else if (State == Gamestate.Charge && time > timing)
+        //    {
+        //        State = Gamestate.BulletPick;
+        //        randomPick = Random.Range(0, 5);
+        //    }
+        //    else if (State == Gamestate.Shoot)
+        //    {
+        //    }
+        //}
 
-        StateUpdate();
+        //StateUpdate();
 
         if (Input.GetButtonDown("Fire2"))
         {
@@ -62,7 +62,7 @@ public class Prova : MonoBehaviour
         }
     }
 
-    private void StateUpdate()
+    public void StateUpdate()
     {
         if (State == Gamestate.Charge)
         {
