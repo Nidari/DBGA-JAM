@@ -20,7 +20,13 @@ public class UiBar : MonoBehaviour {
         if (coolingDown == true)
         {
             cooldDown.fillAmount -= 1.0f / waitTime * Time.deltaTime;
-
+            if (cooldDown.fillAmount == 0f)
+            {
+                Debug.Log("Shoot");
+                coolingDown = false;
+            }
         }
-	}
+    
+
+    }
 }
