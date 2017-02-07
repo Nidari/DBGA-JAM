@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Gamestate { Starting, Charge, BulletPick, Shoot }
+//public enum PlayerState { Starting, Charge, BulletPick, Shoot }
+
+
 
 public class Prova : MonoBehaviour
 {
     public GameObject tamburo;
     public int ciccio;
     public GameObject[] ammoBoxes = new GameObject[6];
-    public Gamestate State = Gamestate.Starting;
+    public PlayerState State;
     public float time = 0;
     public float timing = 5;
     public int randomPick;
@@ -24,6 +26,7 @@ public class Prova : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        
         //ammoBoxes = GetComponentsInChildren<GameObject>();
     }
 
@@ -41,25 +44,26 @@ public class Prova : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Mathf.Lerp()
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (State == Gamestate.Starting)
-            {
-                State = Gamestate.Charge;
-            }
-            else if (State == Gamestate.Charge && time > timing)
-            {
-                State = Gamestate.BulletPick;
-                randomPick = Random.Range(0, 5);
-                tempTime = Random.Range(1, 3);
-            }
-            else if (State == Gamestate.Shoot)
-            {
-            }
-        }
+        State = FindObjectOfType<PlayerControls>().state;
+        ////Mathf.Lerp()
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    if (State == PlayerState.Starting)
+        //    {
+        //        State = PlayerState.Charge;
+        //    }
+        //    else if (State == PlayerState.Charge && time > timing)
+        //    {
+        //        State = PlayerState.BulletPick;
+        //        randomPick = Random.Range(0, 5);
+        //        tempTime = Random.Range(1, 3);
+        //    }
+        //    else if (State == PlayerState.Shoot)
+        //    {
+        //    }
+        //}
 
-        StateUpdate();
+        //StateUpdate();
 
         if (Input.GetButtonDown("Fire2"))
         {
@@ -67,10 +71,11 @@ public class Prova : MonoBehaviour
         }
     }
 
-    private void StateUpdate()
+    public void StateUpdate()
     {
-        if (State == Gamestate.Charge)
+        if (State == PlayerState.Charge)
         {
+            
             tamburo.transform.eulerAngles -= new Vector3(0, 0, ciccio * Time.deltaTime);
             time += Time.deltaTime;
             myPosition = this.transform.eulerAngles;
@@ -80,20 +85,18 @@ public class Prova : MonoBehaviour
                 ammo.GetComponent<MeshRenderer>().material.color -= new Color(0, 0, 0, hideTime * Time.deltaTime);
             }
         }
-        else if (State == Gamestate.BulletPick && time > timing)
-        {
-            GetBulletPosition();
-        }
-        else if (State == Gamestate.Shoot)
+        
+        else if (State == PlayerState.Shoot)
+
         {
         }
     }
 
     private void GetBulletPosition()
     {
-        if (myTime < tempTime)
+        /*if (myTime < tempTime)
         {
-            switch (randomPick)
+            switch ()
             {
                 case 0:
                     myTime += Time.deltaTime;
@@ -128,6 +131,6 @@ public class Prova : MonoBehaviour
                 default:
                     break;
             }
-        }
+        }*/
     }
 }
