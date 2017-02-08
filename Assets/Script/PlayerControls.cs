@@ -17,6 +17,7 @@ public class PlayerControls : MonoBehaviour
     public float timing = 5;
     public int currentBullet;
     public GameObject[] bullets = new GameObject[6];
+    public int playerLife = 3;
 
     private void Awake()
     {
