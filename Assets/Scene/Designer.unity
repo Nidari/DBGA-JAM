@@ -674,6 +674,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 958810998}
+        m_MethodName: ButtonPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &645658500
@@ -961,6 +972,12 @@ RectTransform:
   m_AnchoredPosition: {x: 448, y: -28}
   m_SizeDelta: {x: 93, y: 376}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &958810998 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013244888306, guid: c0afe18501579b147abd4f0f2d7c72c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1859910127}
+  m_Script: {fileID: 11500000, guid: c7afa5a728858da4b84b3aa031763313, type: 3}
 --- !u!1 &985371850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1100,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 433045301}
         m_MethodName: ImReady
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 958810998}
+        m_MethodName: ButtonPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2338,23 +2366,24 @@ Prefab:
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 24300001, guid: c1376444f69662f479c69713702cb930,
+        type: 2}
     - target: {fileID: 114000013244888306, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: ButtonPressed
@@ -2364,12 +2393,13 @@ Prefab:
         type: 2}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 24300001, guid: 62cf3f7c5d8bd2f4591adcffb145f040,
+        type: 2}
     - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 23ff74b0b909bb9499bf4ca9f333ebc0, type: 3}
     - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: DoppioSparo
@@ -2414,27 +2444,32 @@ Prefab:
         type: 2}
       propertyPath: ButtonPressed
       value: 
+      objectReference: {fileID: 8300000, guid: 23ff74b0b909bb9499bf4ca9f333ebc0, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Campana
-      value: 
-      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: ColpoCura
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
-    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Campana
-      value: 
-      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
-    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: ColpoCura
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0

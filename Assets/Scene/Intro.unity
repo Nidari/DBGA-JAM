@@ -3568,6 +3568,16 @@ Prefab:
       propertyPath: Sparo
       value: 
       objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
