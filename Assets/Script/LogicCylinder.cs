@@ -6,10 +6,10 @@ public class LogicCylinder : MonoBehaviour
     private GameController gcLinker;
     public Transform positionInScene;
     private Vector3 myInitialPosition;
-
+    public PlayerControls myPlayer;
     public GameObject[] ammoBoxes = new GameObject[6];
 
-    bool rotating = false;
+    private bool rotating = false;
 
     // [Range(0, 10)]
     public float hideTime = 1f;
@@ -26,6 +26,17 @@ public class LogicCylinder : MonoBehaviour
     public float timeToExec = 0f;
 
     // Use this for initialization
+
+    private void Awake()
+    {
+        ammoBoxes[0].AddComponent<ShootBrain>();
+        ammoBoxes[1].AddComponent<ShootBrain>();
+        ammoBoxes[2].AddComponent<ShootBrain>();
+        ammoBoxes[3].AddComponent<ShootBrain>();
+        ammoBoxes[4].AddComponent<ShootBrain>();
+        ammoBoxes[5].AddComponent<ShootBrain>();
+    }
+
     private void Start()
     {
         gcLinker = FindObjectOfType<GameController>();
@@ -34,32 +45,54 @@ public class LogicCylinder : MonoBehaviour
 
     private void Update()
     {
-
+        
         if (gcLinker.GamePhase == GameState.ChargingPhase && rotating)
         {
             hideTime += Time.deltaTime;
             foreach (var ammo in ammoBoxes)
             {
                 Color nuovoColore = ammo.GetComponent<MeshRenderer>().material.color;
-               
-                ammo.GetComponent<MeshRenderer>().material.color = new Color(nuovoColore.r, nuovoColore.g, nuovoColore.b, Mathf.Lerp(1,0,(hideTime/rotatingTime)));
-                
+
+                ammo.GetComponent<MeshRenderer>().material.color = new Color(nuovoColore.r, nuovoColore.g, nuovoColore.b, Mathf.Lerp(1, 0, (hideTime / rotatingTime)));
             }
         }
     }
 
     public IEnumerator MovingCylinderCO()
     {
+        speed = 0;
+        hideTime = 0;
+        foreach (var ammo in ammoBoxes)
+        {
+            ammo.GetComponent<MeshRenderer>().material.color += new Color(0, 0, 0, 1); 
+        }
         while (speed < timeToExec)
         {
             if (gcLinker.GamePhase == GameState.ChargingPhase)
             {
-                speed += Time.deltaTime;               
+                speed += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(myInitialPosition, positionInScene.position, speed / timeToExec);
             }
             yield return null;
         }
         StartCoroutine(RotateCylinderCO());
+    }
+
+    public IEnumerator MovingOutCylinderCO()
+    {
+        speed = 0;
+        yield return new WaitForSeconds(1.5f);
+        while (speed < timeToExec)
+        {
+            if (gcLinker.GamePhase == GameState.ChargingPhase)
+            {
+                speed += Time.deltaTime;
+                this.transform.position = Vector3.Lerp(positionInScene.position, myInitialPosition, speed / timeToExec);
+            }
+            yield return null;
+        }
+        gcLinker.GamePhase = GameState.ShootingTimer;
+        gcLinker.PrepareToShoot();
     }
 
     private IEnumerator RotateCylinderCO()
@@ -78,49 +111,50 @@ public class LogicCylinder : MonoBehaviour
         rotating = false;
         float myTime = 0;
         float tempTime = 1;
-        int cazzo = Random.Range(0, 6);
-
+        int randomBullet = Random.Range(0, 6);
+        myPlayer.bullet = randomBullet;
+        Debug.Log(randomBullet);
         myPosition = this.transform.eulerAngles;
-        Vector3 asd;
-        while (true)
+        Vector3 findBullet;
+
+        while (myTime / tempTime < 1)
         {
-            switch (cazzo)
+            switch (randomBullet)
             {
                 case 0:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 0, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
-
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 0 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 1:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 56, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 56 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 2:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 121, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 121 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 3:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 180, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 180 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 4:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 238, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 238 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 5:
                     myTime += Time.deltaTime;
-                    asd = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 301, myTime / tempTime));
-                    tamburo.transform.eulerAngles = asd;
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 301 - 360, myTime / tempTime));
+                    tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 default:
@@ -128,5 +162,6 @@ public class LogicCylinder : MonoBehaviour
             }
             yield return null;
         }
+        StartCoroutine(MovingOutCylinderCO());
     }
 }
