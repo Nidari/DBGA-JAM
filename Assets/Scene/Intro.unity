@@ -146,18 +146,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7066970}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children:
   - {fileID: 2128181748}
   m_Father: {fileID: 1300223706}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -127.5, y: 1}
-  m_SizeDelta: {x: -344, y: -86}
+  m_AnchoredPosition: {x: -229, y: 1}
+  m_SizeDelta: {x: -930, y: 207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &32855012
 GameObject:
@@ -4409,7 +4409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ARTIST:
+  m_Text: 'ARTISTS:
 
     GIORGIA BASSINI
 
@@ -4418,7 +4418,7 @@ MonoBehaviour:
     MICHELE GARZIA
 
 
-    DESIGNER:
+    DESIGNERS:
 
     JULIAN BERUTTI
 
@@ -4431,7 +4431,7 @@ MonoBehaviour:
     RICCARDO TORREGROSSA
 
 
-    PROGRAMMER:
+    PROGRAMMERS:
 
     FABRIZIO CAGGIANELLI
 
