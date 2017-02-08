@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 /// <summary>
 /// GC PHASE:
@@ -8,36 +8,37 @@ using System.Collections;
 ///     - Charging = cylinder rotation & bullet picking
 ///     - Shoot = waiting for players input
 ///     - UpdateStatus = refresh all gameplay variables
-///     
+///
 /// PLAYER PHASE:
 ///     - InitPlayer = UI button click
 ///     - Starting = Wait the other player to start
 ///     - Charge = cylinder rotation logic & bullet picking
-///     - ShootingTimer = wait until 
+///     - ShootingTimer = wait until
 ///     - Shoot = player input
 ///     - AfterShoot = wait until all players shoot
-/// 
+///
 /// </summary>
-public enum GameState {InitPhase,WaitingPhase,ChargingPhase,ShootingTimer,ShootPhase,UpdateStatus}
+public enum GameState { InitPhase, WaitingPhase, ChargingPhase, ShootingTimer, ShootPhase, UpdateStatus }
 
-
-
-public class GameController : MonoBehaviour {
-
+public class GameController : MonoBehaviour
+{
     public GameState GamePhase = GameState.InitPhase;
-    bool steadyPhase = false;
+    private bool steadyPhase = false;
+    private bool hasShoot = false;
     public float timeToShoot = 3;
-    PlayerControls[] players;
-	// Use this for initialization
-	void Start () {
+    private PlayerControls[] players;
+
+    // Use this for initialization
+    private void Start()
+    {
         players = FindObjectsOfType<PlayerControls>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
-    
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+    }
+
     public void PrepareToShoot()
     {
         if (!steadyPhase)
@@ -47,7 +48,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    IEnumerator WaitingTimeCO()
+    private IEnumerator WaitingTimeCO()
     {
         float timeLapse = 0;
         while (timeLapse / timeToShoot < 1)
@@ -61,5 +62,18 @@ public class GameController : MonoBehaviour {
             player.state = PlayerState.Shoot;
         }
         steadyPhase = false;
+    }
+
+    public bool HasShoot
+    {
+        get
+        {
+            return hasShoot;
+        }
+
+        set
+        {
+            hasShoot = value;
+        }
     }
 }

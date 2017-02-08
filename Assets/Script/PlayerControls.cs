@@ -11,6 +11,8 @@ public class PlayerControls : MonoBehaviour
     public LogicCylinder logicLinker;
     public PlayerControls opponent;
 
+    
+
     public Button startButton;
     public PlayerState state = PlayerState.InitPlayer;
     public int randomPick;
@@ -45,6 +47,13 @@ public class PlayerControls : MonoBehaviour
             gcLinker.GamePhase = GameState.UpdateStatus;
             ShootWithBullet(currentBullet);
             StartCoroutine(WaitForAnotherMatchCO());
+            if (gcLinker.HasShoot)
+            {
+                gcLinker.GamePhase = GameState.InitPhase;
+            }
+            gcLinker.HasShoot = true;
+
+
         }
         else if (state == PlayerState.AfterShoot)
         {
@@ -59,6 +68,7 @@ public class PlayerControls : MonoBehaviour
             yield return null;
         }
         state = PlayerState.InitPlayer;
+        gcLinker.GamePhase = GameState.InitPhase;
         startButton.gameObject.SetActive(true);
         opponent.startButton.gameObject.SetActive(true);
 
@@ -66,6 +76,7 @@ public class PlayerControls : MonoBehaviour
 
     public void ImReady()
     {
+        gcLinker.HasShoot = false;
         if (gcLinker.GamePhase == GameState.InitPhase)
         {
             state = PlayerState.Starting;

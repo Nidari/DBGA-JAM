@@ -8,6 +8,7 @@ public class LogicCylinder : MonoBehaviour
     private Vector3 myInitialPosition;
     public PlayerControls myPlayer;
     public GameObject[] ammoBoxes = new GameObject[6];
+    public float waitingTime = 2;
 
     private bool rotating = false;
 
@@ -51,9 +52,9 @@ public class LogicCylinder : MonoBehaviour
             hideTime += Time.deltaTime;
             foreach (var ammo in ammoBoxes)
             {
-                Color nuovoColore = ammo.GetComponent<MeshRenderer>().material.color;
+                Color nuovoColore = ammo.GetComponent<SpriteRenderer>().color;
 
-                ammo.GetComponent<MeshRenderer>().material.color = new Color(nuovoColore.r, nuovoColore.g, nuovoColore.b, Mathf.Lerp(1, 0, (hideTime / rotatingTime)));
+                ammo.GetComponent<SpriteRenderer>().color = new Color(nuovoColore.r, nuovoColore.g, nuovoColore.b, Mathf.Lerp(1, 0, (hideTime / rotatingTime)));
             }
         }
     }
@@ -64,7 +65,7 @@ public class LogicCylinder : MonoBehaviour
         hideTime = 0;
         foreach (var ammo in ammoBoxes)
         {
-            ammo.GetComponent<MeshRenderer>().material.color += new Color(0, 0, 0, 1); 
+            ammo.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 1); 
         }
         while (speed < timeToExec)
         {
@@ -97,6 +98,7 @@ public class LogicCylinder : MonoBehaviour
 
     private IEnumerator RotateCylinderCO()
     {
+        yield return new WaitForSeconds(waitingTime);
         GameObject tamburo = this.gameObject;
         Vector3 myPosition = this.transform.eulerAngles;
         float speedTime = 0;
@@ -123,37 +125,37 @@ public class LogicCylinder : MonoBehaviour
             {
                 case 0:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 0 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 31 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 1:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 56 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 330 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 2:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 121 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 270 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 3:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 180 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 210 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 4:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 238 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 150 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 
                 case 5:
                     myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 301 - 360, myTime / tempTime));
+                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 90 - 360, myTime / tempTime));
                     tamburo.transform.eulerAngles = findBullet;
                     break;
 

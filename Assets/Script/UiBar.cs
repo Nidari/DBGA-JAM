@@ -17,17 +17,20 @@ public class UiBar : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (gcLinker.GamePhase == GameState.ShootPhase)
+        if (gcLinker.GamePhase == GameState.ShootPhase || gcLinker.GamePhase == GameState. UpdateStatus)
         {
             if (coolingDown == true)
             {
                 cooldDown.fillAmount -= 1.0f / waitTime * Time.deltaTime;
                 if (cooldDown.fillAmount == 0f)
-                {
-                    Debug.Log("Shoot");
+                {                    
                     coolingDown = false;
                 }
             }
+        }
+        else if (gcLinker.GamePhase == GameState.InitPhase)
+        {
+            cooldDown.fillAmount = 1;
         }
     }
 }
