@@ -15,11 +15,14 @@ public class PlayerControls : MonoBehaviour
     public int randomPick;
     public float time = 0;
     public float timing = 5;
+    public int currentBullet;
+    public GameObject[] bullets = new GameObject[6];
 
     private void Awake()
     {
         provaLinker = FindObjectOfType<Prova>();
         gcLinker = FindObjectOfType<GameController>();
+
     }
 
     private void Start()
@@ -50,6 +53,7 @@ public class PlayerControls : MonoBehaviour
         }*/
         if (state == PlayerState.Shoot)
         {
+            ShootWithBullet(currentBullet);
 
         }
 
@@ -81,5 +85,31 @@ public class PlayerControls : MonoBehaviour
         }
         state = PlayerState.Charge;
         StartCoroutine(logicLinker.MovingCylinderCO());
+    }
+
+    public int bullet
+    {
+        get { return currentBullet; }
+        set { currentBullet = value; }
+    }
+
+    void ShootWithBullet(int choosedBullet)
+    {
+        switch (choosedBullet)
+        {
+            case 0:
+               
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
     }
 }

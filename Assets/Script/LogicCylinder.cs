@@ -6,7 +6,7 @@ public class LogicCylinder : MonoBehaviour
     private GameController gcLinker;
     public Transform positionInScene;
     private Vector3 myInitialPosition;
-
+    public PlayerControls myPlayer;
     public GameObject[] ammoBoxes = new GameObject[6];
 
     bool rotating = false;
@@ -97,9 +97,11 @@ public class LogicCylinder : MonoBehaviour
         float myTime = 0;
         float tempTime = 1;
         int randomBullet = Random.Range(0, 6);
-
+        myPlayer.bullet = randomBullet;
+        Debug.Log(randomBullet);
         myPosition = this.transform.eulerAngles;
         Vector3 findBullet;
+
         while (myTime / tempTime < 1)
         {
             switch (randomBullet)
