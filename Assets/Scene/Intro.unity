@@ -4409,7 +4409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ARTIST:
+  m_Text: 'ARTISTS:
 
     GIORGIA BASSINI
 
@@ -4418,7 +4418,7 @@ MonoBehaviour:
     MICHELE GARZIA
 
 
-    DESIGNER:
+    DESIGNERS:
 
     JULIAN BERUTTI
 
@@ -4431,7 +4431,7 @@ MonoBehaviour:
     RICCARDO TORREGROSSA
 
 
-    PROGRAMMER:
+    PROGRAMMERS:
 
     FABRIZIO CAGGIANELLI
 
