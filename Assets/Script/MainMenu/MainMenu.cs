@@ -13,19 +13,18 @@ public class MainMenu : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-	
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-        }
+    }
 
    public void TutButtonPressed()
     {
         TutPanel.SetActive(true);
         MainPanel.SetActive(false);
         BG.SetActive(true);
+
     }
    public void backPressed()
     {
@@ -33,7 +32,7 @@ public class MainMenu : MonoBehaviour {
         MainPanel.SetActive(true);
         BG.SetActive(false);
 
-       if(page2Tut == true)
+        if (page2Tut == true)
         {
             page2Tut.SetActive(false);
             page1Tut.SetActive(true);

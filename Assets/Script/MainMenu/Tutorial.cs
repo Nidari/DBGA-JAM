@@ -10,8 +10,7 @@ public class Tutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +19,6 @@ public class Tutorial : MonoBehaviour {
 
     public void nextPage()
     {
-       
         page1Tut.SetActive(false);
         page2Tut.SetActive(true);
         //arrowNext.SetActive(false);
@@ -29,11 +27,10 @@ public class Tutorial : MonoBehaviour {
     }
     public void backPage()
     {
-
         page1Tut.SetActive(true);
         page2Tut.SetActive(false);
-       //arrowBack.SetActive(false);
-       //arrowNext.SetActive(true);
+        //arrowBack.SetActive(false);
+        //arrowNext.SetActive(true);
 
     }
 }
