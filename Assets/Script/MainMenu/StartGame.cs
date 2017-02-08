@@ -4,6 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
 
+    AudioSource audioSourceLinker;
+   public  AudioClip audioClipLinker;
+    bool loading = false;
+
+    void Awake()
+    {
+        audioSourceLinker = GameObject.Find("MixerSecondario").GetComponent<AudioSource>();
+       
+    }
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,7 +26,24 @@ public class StartGame : MonoBehaviour {
 
 public void StartG()
     {
+        if (!loading)
+        {
+            StartCoroutine(DeleyedLoad());
+            loading = true;
+        }
+     
+      
+         
+    }
+
+    IEnumerator DeleyedLoad()
+    {
+        audioSourceLinker.PlayOneShot(audioClipLinker);
+
+        yield return new WaitForSeconds(audioClipLinker.length);
+
         SceneManager.LoadScene(1);
+
     }
 
 }
