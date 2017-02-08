@@ -3436,6 +3436,76 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DoppioSparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 31321833f5c0f324bbe0806521857276, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DuelWhistle
+      value: 
+      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: GunExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf7d826aee96a4c8513dcf605a22da, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: HowlingWind
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ProjectileDodged
+      value: 
+      objectReference: {fileID: 8300000, guid: cc97f48995d28204992f4ffb01d25def, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Ricarica
+      value: 
+      objectReference: {fileID: 8300000, guid: 9028a1f9c8120c442805801b7c6bea40, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Sparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DoppioSparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 31321833f5c0f324bbe0806521857276, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DuelWhistle
+      value: 
+      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: GunExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf7d826aee96a4c8513dcf605a22da, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: HowlingWind
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ProjectileDodged
+      value: 
+      objectReference: {fileID: 8300000, guid: cc97f48995d28204992f4ffb01d25def, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Ricarica
+      value: 
+      objectReference: {fileID: 8300000, guid: 9028a1f9c8120c442805801b7c6bea40, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Sparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
