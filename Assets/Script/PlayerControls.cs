@@ -87,6 +87,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (state == PlayerState.Shoot)
         {
+            
             state = PlayerState.AfterShoot;
             gcLinker.GamePhase = GameState.UpdateStatus;
             ShootWithBullet(currentBullet);
@@ -97,11 +98,11 @@ public class PlayerControls : MonoBehaviour
             }
             gcLinker.HasShoot = true;
         }
-        else if (state == PlayerState.AfterShoot)
+        /*else if (state == PlayerState.AfterShoot )
         {
             state = PlayerState.InitPlayer;
             gcLinker.GamePhase = GameState.InitPhase;
-        }
+        }*/
     }
 
     private void ShootWithBullet(int choosedBullet)

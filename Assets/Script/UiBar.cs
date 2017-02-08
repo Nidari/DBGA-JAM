@@ -25,6 +25,14 @@ public class UiBar : MonoBehaviour
                 if (cooldDown.fillAmount == 0f)
                 {                    
                     coolingDown = false;
+                    gcLinker.GamePhase = GameState.InitPhase;
+                    foreach (var player in FindObjectsOfType<PlayerControls>())
+                    {
+                        player.state = PlayerState.InitPlayer;
+                        player.startButton.gameObject.SetActive(true);
+                    }
+                    coolingDown = true;
+
                 }
             }
         }
