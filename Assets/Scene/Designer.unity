@@ -727,6 +727,7 @@ MonoBehaviour:
   - {fileID: 73439832}
   - {fileID: 1321565050}
   - {fileID: 964867441}
+  waitingTime: 2
   hideTime: 0
   rotatingTime: 5
   rotateSpeed: 5
@@ -1933,7 +1934,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437057532}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalPosition: {x: -12, y: 1.2, z: -1}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_Children: []
@@ -2127,6 +2128,7 @@ MonoBehaviour:
   - {fileID: 1908430043}
   - {fileID: 1778344844}
   - {fileID: 1915583892}
+  waitingTime: 2
   hideTime: 0
   rotatingTime: 5
   rotateSpeed: 5
