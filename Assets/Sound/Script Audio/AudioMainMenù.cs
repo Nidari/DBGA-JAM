@@ -19,11 +19,17 @@ public class AudioMainMenù : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && tag == "Button")
-        {
-            Audio.clip = ButtonPressed;
-            Audio.PlayOneShot(Audio.clip);
-        }
+        //if (Input.GetButtonDown("Fire1") && tag == "Button")
+        //{
+        //    Debug.Log("Audio");
+        //    Audio.clip = ButtonPressed;
+        //    Audio.PlayOneShot(Audio.clip);
+        //}
+    }
+
+   public void ButtonPlay()
+    {
+        Audio.PlayOneShot(soundContainer.ButtonPressed);
     }
 
 }
