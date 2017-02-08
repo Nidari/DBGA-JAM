@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Dodge : MonoBehaviour {
+public class Dodge : AbstractBullet {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    int idBullet = 6;
+
+    public override int Shoot()
+    {
+        return idBullet;
+    }
+   
 }

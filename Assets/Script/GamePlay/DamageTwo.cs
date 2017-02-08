@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DamageTwo : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+public class DamageTwo : AbstractBullet {
+
+    int idBullet = 2;
+
+    public override int Shoot()
+    {
+        return idBullet;
+    }
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	

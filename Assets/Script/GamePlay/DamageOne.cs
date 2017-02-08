@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+
 
 public class DamageOne : AbstractBullet {
 
+    int idBullet = 1;
 
-    public override void Shoot()
+    public override int Shoot()
     {
-        throw new NotImplementedException();
+        return idBullet;
     }
 
     // Use this for initialization
