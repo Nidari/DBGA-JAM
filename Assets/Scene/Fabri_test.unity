@@ -119,6 +119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GamePhase: 0
   timeToShoot: 3
+  replacingBullets:
+  - {fileID: 1000011784631682, guid: 998a5fb92dcecac48b47e44ae0dcb747, type: 2}
+  - {fileID: 1000010140770730, guid: 866d8dafa23dd554884e4b0c6272d2b0, type: 2}
+  - {fileID: 1000010788330414, guid: 30cd650e843f8c84fbe769bb79c38ae8, type: 2}
+  - {fileID: 1000013479056940, guid: e3032a9f3961a6b429fe3565e9766f87, type: 2}
+  - {fileID: 1000013970655064, guid: 47e6919a956338a4a85f986f8d9f9814, type: 2}
+  - {fileID: 1000014078586444, guid: 1595f50d4df004146ae4a96203400850, type: 2}
 --- !u!4 &135547385
 Transform:
   m_ObjectHideFlags: 0
@@ -181,6 +188,16 @@ Prefab:
       propertyPath: myPlayer
       value: 
       objectReference: {fileID: 1913877035}
+    - target: {fileID: 114000011615636366, guid: 6359732ce19d93b41ab51eb6096ce98d,
+        type: 2}
+      propertyPath: rotatingTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011615636366, guid: 6359732ce19d93b41ab51eb6096ce98d,
+        type: 2}
+      propertyPath: waitingTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6359732ce19d93b41ab51eb6096ce98d, type: 2}
   m_IsPrefabParent: 0
@@ -295,6 +312,16 @@ Prefab:
       propertyPath: myPlayer
       value: 
       objectReference: {fileID: 1854124175}
+    - target: {fileID: 114000010029736194, guid: f19cc6ff8fa833940967f6a9f2a223f8,
+        type: 2}
+      propertyPath: rotatingTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010029736194, guid: f19cc6ff8fa833940967f6a9f2a223f8,
+        type: 2}
+      propertyPath: waitingTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f19cc6ff8fa833940967f6a9f2a223f8, type: 2}
   m_IsPrefabParent: 0
@@ -655,14 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ffd9925bbc7254d94d1caa61e31546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logicLinker: {fileID: 704905111}
-  opponent: {fileID: 1913877035}
-  startButton: {fileID: 1104631656}
-  state: 0
-  randomPick: 0
-  time: 0
-  timing: 5
-  currentBullet: 0
   bullets:
   - {fileID: 0}
   - {fileID: 0}
@@ -670,7 +689,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentBullet: 0
+  logicLinker: {fileID: 704905111}
+  opponent: {fileID: 1913877035}
   playerLife: 3
+  randomPick: 0
+  startButton: {fileID: 1104631656}
+  state: 0
+  time: 0
+  timing: 5
 --- !u!1 &1864269131
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,14 +742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ffd9925bbc7254d94d1caa61e31546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logicLinker: {fileID: 1851393012}
-  opponent: {fileID: 1854124175}
-  startButton: {fileID: 1569492735}
-  state: 0
-  randomPick: 0
-  time: 0
-  timing: 5
-  currentBullet: 0
   bullets:
   - {fileID: 0}
   - {fileID: 0}
@@ -730,7 +749,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentBullet: 0
+  logicLinker: {fileID: 1851393012}
+  opponent: {fileID: 1854124175}
   playerLife: 3
+  randomPick: 0
+  startButton: {fileID: 1569492735}
+  state: 0
+  time: 0
+  timing: 5
 --- !u!1 &1968776001
 GameObject:
   m_ObjectHideFlags: 0

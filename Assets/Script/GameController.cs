@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     private bool hasShoot = false;
     public float timeToShoot = 3;
     private PlayerControls[] players;
+    public GameObject[] replacingBullets = new GameObject[6];
 
     // Use this for initialization
     private void Start()
