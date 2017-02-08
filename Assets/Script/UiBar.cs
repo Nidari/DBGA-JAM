@@ -7,11 +7,12 @@ public class UiBar : MonoBehaviour
     public bool coolingDown;
     public float waitTime = 30.0f;
     private GameController gcLinker;
-
+    private AnimationHandler ahLinker;
     // Use this for initialization
     private void Start()
     {
         gcLinker = FindObjectOfType<GameController>();
+        ahLinker = FindObjectOfType<AnimationHandler>();
     }
 
     // Update is called once per frame
@@ -25,12 +26,16 @@ public class UiBar : MonoBehaviour
                 if (cooldDown.fillAmount == 0f)
                 {                    
                     coolingDown = false;
-                    gcLinker.GamePhase = GameState.InitPhase;
+                    gcLinker.GamePhase = GameState.AnimationPhase;
+                    ahLinker.AnimationUpdate();
+
+                    /*
                     foreach (var player in FindObjectsOfType<PlayerControls>())
                     {
                         player.state = PlayerState.InitPlayer;
                         player.startButton.gameObject.SetActive(true);
-                    }
+                        // Fai animazioni qui
+                    }*/
                     coolingDown = true;
 
                 }
