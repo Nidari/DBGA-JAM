@@ -1,25 +1,32 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//public enum Gamestate { Starting, Charge, BulletPick, Shoot }
+//public enum PlayerState { Starting, Charge, BulletPick, Shoot }
+
+
 
 public class Prova : MonoBehaviour
 {
     public GameObject tamburo;
     public int ciccio;
     public GameObject[] ammoBoxes = new GameObject[6];
-    public PlayerState State = PlayerState.Starting;
+    public PlayerState State;
     public float time = 0;
     public float timing = 5;
     public int randomPick;
     private Vector3 myPosition;
+    private int tempTime;
+    private float myTime = 0;
 
-    [Range(0, 1)]
-    public float prrr = 0;
+    [Range(0, 10)]
+    public float hideTime = 0;
+
+    public float timeForFade = 1;
 
     // Use this for initialization
     private void Start()
     {
+        
         //ammoBoxes = GetComponentsInChildren<GameObject>();
     }
 
@@ -37,19 +44,21 @@ public class Prova : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Mathf.Lerp()
+        State = FindObjectOfType<PlayerControls>().state;
+        ////Mathf.Lerp()
         //if (Input.GetButtonDown("Fire1"))
         //{
-        //    if (State == Gamestate.Starting)
+        //    if (State == PlayerState.Starting)
         //    {
-        //        State = Gamestate.Charge;
+        //        State = PlayerState.Charge;
         //    }
-        //    else if (State == Gamestate.Charge && time > timing)
+        //    else if (State == PlayerState.Charge && time > timing)
         //    {
-        //        State = Gamestate.BulletPick;
+        //        State = PlayerState.BulletPick;
         //        randomPick = Random.Range(0, 5);
+        //        tempTime = Random.Range(1, 3);
         //    }
-        //    else if (State == Gamestate.Shoot)
+        //    else if (State == PlayerState.Shoot)
         //    {
         //    }
         //}
@@ -66,48 +75,62 @@ public class Prova : MonoBehaviour
     {
         if (State == PlayerState.Charge)
         {
-            tamburo.transform.eulerAngles += new Vector3(0, 0, ciccio * Time.deltaTime);
+            
+            tamburo.transform.eulerAngles -= new Vector3(0, 0, ciccio * Time.deltaTime);
             time += Time.deltaTime;
             myPosition = this.transform.eulerAngles;
+
+            foreach (var ammo in ammoBoxes)
+            {
+                ammo.GetComponent<MeshRenderer>().material.color -= new Color(0, 0, 0, hideTime * Time.deltaTime);
+            }
         }
-        else if (State == PlayerState.BulletPick && time > timing)
-        {
-            GetBulletPosition();
-        }
+        
         else if (State == PlayerState.Shoot)
+
         {
         }
     }
 
     private void GetBulletPosition()
     {
-        int tempTime = Random.Range(1, 6);
-        float myTime = 0;
-        switch (randomPick)
+        /*if (myTime < tempTime)
         {
-            case 0:
-                myTime += Time.deltaTime;
-                tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 56), myTime / tempTime);
-                
-                break;
+            switch ()
+            {
+                case 0:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 0), myTime / tempTime);
+                    break;
 
-            case 1:
-                break;
+                case 1:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 56), myTime / tempTime);
+                    break;
 
-            case 2:
-                break;
+                case 2:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 121), myTime / tempTime);
+                    break;
 
-            case 3:
-                break;
+                case 3:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 180), myTime / tempTime);
+                    break;
 
-            case 4:
-                break;
+                case 4:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 238), myTime / tempTime);
+                    break;
 
-            case 5:
-                break;
+                case 5:
+                    myTime += Time.deltaTime;
+                    tamburo.transform.eulerAngles = Vector3.Lerp(myPosition, new Vector3(0, 0, 301), myTime / tempTime);
+                    break;
 
-            default:
-                break;
-        }
+                default:
+                    break;
+            }
+        }*/
     }
 }

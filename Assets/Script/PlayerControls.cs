@@ -1,60 +1,83 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor.SceneManagement;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
-public enum PlayerState { Starting, Charge, BulletPick, Shoot }
+public enum PlayerState { InitPlayer, Starting, Charge, Shoot }
 
 public class PlayerControls : MonoBehaviour
 {
+    private Prova provaLinker;
+    private GameController gcLinker;
+    public LogicCylinder logicLinker;
+  
 
-    Prova provaLinker;
-
-    public PlayerState State = PlayerState.Starting;
+    public Button startButton;
+    public PlayerState state = PlayerState.InitPlayer;
     public int randomPick;
     public float time = 0;
     public float timing = 5;
 
-    void Awake()
+
+    private void Awake()
     {
-        provaLinker = GetComponent<Prova>();
+        provaLinker = FindObjectOfType<Prova>();
+        gcLinker = FindObjectOfType<GameController>();
     }
 
-
-    void Start()
+    private void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-       
-  
+        //provaLinker.StateUpdate();
     }
 
-
-    void OnMouseDown()
+    private void OnMouseDown()
     {
-        Debug.Log("PROVA");
-
-        if (State == PlayerState.Starting)
+        if (state == PlayerState.Starting)
         {
-            State = PlayerState.Charge;
+            state = PlayerState.Charge;
         }
-        else if (State == PlayerState.Charge && time > timing)
+        //else if (state == PlayerState.Charge && provaLinker.time > timing)
+        // {
+        //State = PlayerState.BulletPick;
+
+        //randomPick = Random.Range(0, 5);
+        //}
+        else if (state == PlayerState.Shoot)
         {
-            State = PlayerState.BulletPick;
-            randomPick = Random.Range(0, 5);
+            Debug.Log("Fucking shoot");
         }
-        else if (State == PlayerState.Shoot)
-        {
-        }
-
-        provaLinker.StateUpdate();
-
-
-
     }
 
+    public void ImReady()
+    {
+        if (gcLinker.GamePhase == GameState.InitPhase)
+        {
+            state = PlayerState.Starting;
+            gcLinker.GamePhase = GameState.WaitingPhase;
+            StartCoroutine(WaitingForPlayerCO());
+        }
+        else if (gcLinker.GamePhase == GameState.WaitingPhase)
+        {
+            state = PlayerState.Charge;
+            gcLinker.GamePhase = GameState.ChargingPhase;
+            StartCoroutine(logicLinker.MovingCylinderCO());
+        }
 
+        startButton.gameObject.SetActive(false);
+    }
+
+    private IEnumerator WaitingForPlayerCO()
+    {
+        while (gcLinker.GamePhase == GameState.ChargingPhase)
+        {
+            yield return null;
+        }
+        state = PlayerState.Charge;
+        StartCoroutine(logicLinker.MovingCylinderCO());
+      
+    }
 }
