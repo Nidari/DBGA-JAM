@@ -5,9 +5,9 @@ using System;
 public class DamageOne : AbstractBullet {
 
 
-    public override void Shoot()
+    public override int Shoot()
     {
-        throw new NotImplementedException();
+        return 1;
     }
 
     // Use this for initialization
