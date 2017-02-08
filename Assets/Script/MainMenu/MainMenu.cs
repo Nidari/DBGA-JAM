@@ -7,6 +7,9 @@ public class MainMenu : MonoBehaviour {
     public GameObject MainPanel;
     public GameObject TutPanel;
     public GameObject BG;
+
+    public GameObject page1Tut;
+    public GameObject page2Tut;
     
 	// Use this for initialization
 	void Start () {
@@ -29,6 +32,12 @@ public class MainMenu : MonoBehaviour {
         TutPanel.SetActive(false);
         MainPanel.SetActive(true);
         BG.SetActive(false);
+
+       if(page2Tut == true)
+        {
+            page2Tut.SetActive(false);
+            page1Tut.SetActive(true);
+        }
     }
 
 
