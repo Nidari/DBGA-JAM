@@ -1887,6 +1887,8 @@ GameObject:
   - 212: {fileID: 1437057533}
   - 95: {fileID: 1437057535}
   - 111: {fileID: 1437057536}
+  - 82: {fileID: 1437057538}
+  - 114: {fileID: 1437057537}
   m_Layer: 0
   m_Name: Gun_Peruvian
   m_TagString: Untagged
@@ -1971,6 +1973,92 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1437057537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437057532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bb5dd610d155141891fc62bc54717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &1437057538
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437057532}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 290e766bcea050d438af3cdb9af57b28,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1483124199 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011726534328, guid: b8c5715e258984c4190e534e737bf89e,
@@ -2411,6 +2499,168 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1797949938}
+--- !u!1001 &1859910127
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 828.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 541
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DoppioSparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 31321833f5c0f324bbe0806521857276, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DuelWhistle
+      value: 
+      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: GunExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf7d826aee96a4c8513dcf605a22da, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: HowlingWind
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ProjectileDodged
+      value: 
+      objectReference: {fileID: 8300000, guid: cc97f48995d28204992f4ffb01d25def, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Ricarica
+      value: 
+      objectReference: {fileID: 8300000, guid: 9028a1f9c8120c442805801b7c6bea40, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Sparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Cilecca
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3aa909c41bd2e43b3aafd725542155, type: 3}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013244888306, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ButtonPressed
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DoppioSparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 31321833f5c0f324bbe0806521857276, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: DuelWhistle
+      value: 
+      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: GunExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf7d826aee96a4c8513dcf605a22da, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: HowlingWind
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ProjectileDodged
+      value: 
+      objectReference: {fileID: 8300000, guid: cc97f48995d28204992f4ffb01d25def, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Ricarica
+      value: 
+      objectReference: {fileID: 8300000, guid: 9028a1f9c8120c442805801b7c6bea40, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Sparo
+      value: 
+      objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Cilecca
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3aa909c41bd2e43b3aafd725542155, type: 3}
+    - target: {fileID: 114000013684124428, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ButtonPressed
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1908430043 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010364545196, guid: b8c5715e258984c4190e534e737bf89e,
@@ -2454,6 +2704,8 @@ GameObject:
   - 212: {fileID: 1925476112}
   - 95: {fileID: 1925476111}
   - 111: {fileID: 1925476114}
+  - 82: {fileID: 1925476116}
+  - 114: {fileID: 1925476115}
   m_Layer: 0
   m_Name: Gun_Mexican
   m_TagString: Untagged
@@ -2538,6 +2790,92 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1925476115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1925476110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019816dd7b584a14ab20941f8a2eaca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &1925476116
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1925476110}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 012d60bbbad696b42861c3b8c51a59f7,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1995948050
 Prefab:
   m_ObjectHideFlags: 0
