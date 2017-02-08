@@ -15,6 +15,7 @@ using System.Collections;
 ///     - Charge = cylinder rotation logic & bullet picking
 ///     - ShootingTimer = wait until 
 ///     - Shoot = player input
+///     - AfterShoot = wait until all players shoot
 /// 
 /// </summary>
 public enum GameState {InitPhase,WaitingPhase,ChargingPhase,ShootingTimer,ShootPhase,UpdateStatus}
@@ -59,5 +60,6 @@ public class GameController : MonoBehaviour {
         {
             player.state = PlayerState.Shoot;
         }
+        steadyPhase = false;
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PlayerState { InitPlayer, Starting, Charge, Shoot }
+public enum PlayerState { InitPlayer, Starting, Charge, Shoot, AfterShoot}
 
 public class PlayerControls : MonoBehaviour
 {
@@ -38,24 +38,30 @@ public class PlayerControls : MonoBehaviour
 
     private void OnMouseDown()
     {
-        /*if (state == PlayerState.Starting)
-        {
-            state = PlayerState.Charge;
-        }
-        //else if (state == PlayerState.Charge && provaLinker.time > timing)
-        // {
-        //State = PlayerState.BulletPick;
-
-        //randomPick = Random.Range(0, 5);
-        //}
-        else if (state == PlayerState.Shoot)
-        {
-            Debug.Log("Fucking shoot");
-        }*/
+        
         if (state == PlayerState.Shoot)
         {
+            state = PlayerState.AfterShoot;
+            gcLinker.GamePhase = GameState.UpdateStatus;
             ShootWithBullet(currentBullet);
+            StartCoroutine(WaitForAnotherMatchCO());
         }
+        else if (state == PlayerState.AfterShoot)
+        {
+            state = PlayerState.InitPlayer;
+            gcLinker.GamePhase = GameState.InitPhase;
+        }
+    }
+    IEnumerator WaitForAnotherMatchCO()
+    {
+        while (gcLinker.GamePhase == GameState.UpdateStatus)
+        {
+            yield return null;
+        }
+        state = PlayerState.InitPlayer;
+        startButton.gameObject.SetActive(true);
+        opponent.startButton.gameObject.SetActive(true);
+
     }
 
     public void ImReady()
@@ -78,7 +84,7 @@ public class PlayerControls : MonoBehaviour
 
     private IEnumerator WaitingForPlayerCO()
     {
-        while (gcLinker.GamePhase == GameState.ChargingPhase)
+        while (gcLinker.GamePhase == GameState.WaitingPhase)
         {
             yield return null;
         }
@@ -93,37 +99,38 @@ public class PlayerControls : MonoBehaviour
     }
 
     private void ShootWithBullet(int choosedBullet)
-    {
+    {        
         switch (choosedBullet)
         {
             case 0:
-                DamageHandler(logicLinker.ammoBoxes[0].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[0].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
 
             case 1:
-                DamageHandler(logicLinker.ammoBoxes[1].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[1].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
 
             case 2:
-                DamageHandler(logicLinker.ammoBoxes[2].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[2].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
 
             case 3:
-                DamageHandler(logicLinker.ammoBoxes[3].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[3].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
 
             case 4:
-                DamageHandler(logicLinker.ammoBoxes[4].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[4].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
 
             case 5:
-                DamageHandler(logicLinker.ammoBoxes[5].GetComponent<cancello>().Shoot());
+                DamageHandler(logicLinker.ammoBoxes[5].GetComponent<ShootBrain>().TypeOfShoot());
                 break;
         }
     }
 
     private void DamageHandler(int idBullet)
     {
+        
         switch (idBullet)   
         {
             case 1:

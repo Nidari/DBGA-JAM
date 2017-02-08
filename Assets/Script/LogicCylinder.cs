@@ -29,12 +29,12 @@ public class LogicCylinder : MonoBehaviour
 
     private void Awake()
     {
-        ammoBoxes[0].AddComponent<cancello>();
-        ammoBoxes[1].AddComponent<cancello>();
-        ammoBoxes[2].AddComponent<cancello>();
-        ammoBoxes[3].AddComponent<cancello>();
-        ammoBoxes[4].AddComponent<cancello>();
-        ammoBoxes[5].AddComponent<cancello>();
+        ammoBoxes[0].AddComponent<ShootBrain>();
+        ammoBoxes[1].AddComponent<ShootBrain>();
+        ammoBoxes[2].AddComponent<ShootBrain>();
+        ammoBoxes[3].AddComponent<ShootBrain>();
+        ammoBoxes[4].AddComponent<ShootBrain>();
+        ammoBoxes[5].AddComponent<ShootBrain>();
     }
 
     private void Start()
@@ -45,6 +45,7 @@ public class LogicCylinder : MonoBehaviour
 
     private void Update()
     {
+        
         if (gcLinker.GamePhase == GameState.ChargingPhase && rotating)
         {
             hideTime += Time.deltaTime;
@@ -59,6 +60,12 @@ public class LogicCylinder : MonoBehaviour
 
     public IEnumerator MovingCylinderCO()
     {
+        speed = 0;
+        hideTime = 0;
+        foreach (var ammo in ammoBoxes)
+        {
+            ammo.GetComponent<MeshRenderer>().material.color += new Color(0, 0, 0, 1); 
+        }
         while (speed < timeToExec)
         {
             if (gcLinker.GamePhase == GameState.ChargingPhase)
