@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Heal : MonoBehaviour {
+public class Heal :AbstractBullet {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    int heal = 3;
+
+    public override int Shoot()
+    {
+        
+        return heal;
+    }
+
+    
 }

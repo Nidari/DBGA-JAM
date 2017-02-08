@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Explosive : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class Explosive : AbstractBullet {
+
+    int idBullet = 5;
+
+    public override int Shoot()
+    {
+        return idBullet;
+    }
+
 }
