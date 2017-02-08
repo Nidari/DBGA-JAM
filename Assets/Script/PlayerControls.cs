@@ -9,14 +9,12 @@ public class PlayerControls : MonoBehaviour
     private Prova provaLinker;
     private GameController gcLinker;
     public LogicCylinder logicLinker;
-  
 
     public Button startButton;
     public PlayerState state = PlayerState.InitPlayer;
     public int randomPick;
     public float time = 0;
     public float timing = 5;
-
 
     private void Awake()
     {
@@ -36,7 +34,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (state == PlayerState.Starting)
+        /*if (state == PlayerState.Starting)
         {
             state = PlayerState.Charge;
         }
@@ -49,7 +47,12 @@ public class PlayerControls : MonoBehaviour
         else if (state == PlayerState.Shoot)
         {
             Debug.Log("Fucking shoot");
+        }*/
+        if (state == PlayerState.Shoot)
+        {
+
         }
+
     }
 
     public void ImReady()
@@ -78,6 +81,5 @@ public class PlayerControls : MonoBehaviour
         }
         state = PlayerState.Charge;
         StartCoroutine(logicLinker.MovingCylinderCO());
-      
     }
 }
