@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour {
     {
         TutPanel.SetActive(false);
         MainPanel.SetActive(true);
-        BG.SetActive(true);
+        BG.SetActive(false);
 
         if (page2Tut == true)
         {

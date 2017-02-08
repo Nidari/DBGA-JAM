@@ -2874,7 +2874,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3e246eb0437a244f9c5a935d7723f82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b4ffcbd0f44b14a41b79bed0736a096a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4163,13 +4163,43 @@ Prefab:
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_Volume
-      value: 0.08
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Cilecca
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3aa909c41bd2e43b3aafd725542155, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Cilecca
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3aa909c41bd2e43b3aafd725542155, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
