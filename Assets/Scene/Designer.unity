@@ -2415,6 +2415,26 @@ Prefab:
       propertyPath: ButtonPressed
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Campana
+      value: 
+      objectReference: {fileID: 8300000, guid: f185b4674324e8d4c8b9441e3f0f20cd, type: 3}
+    - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: ColpoCura
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f54b02b3b3d6fb45922daa5291be672, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0

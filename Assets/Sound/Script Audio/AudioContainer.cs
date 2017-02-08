@@ -18,6 +18,8 @@ public class AudioContainer : MonoBehaviour {
     public AudioClip Ricarica;
     public AudioClip Sparo;
     public AudioClip Cilecca;
+    public AudioClip Campana;
+    public AudioClip ColpoCura;
 
     // Use this for initialization
     void Start () {
