@@ -530,6 +530,8 @@ MonoBehaviour:
   time: 0
   timing: 5
   whichBullet: 6
+  dodge: 0
+  iShoot: 0
 --- !u!95 &433045304
 Animator:
   serializedVersion: 3
@@ -683,6 +685,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 852982197}
         m_MethodName: ImReady
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1232939422}
+        m_MethodName: ButtonPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -935,6 +948,8 @@ MonoBehaviour:
   time: 0
   timing: 5
   whichBullet: 6
+  dodge: 0
+  iShoot: 0
 --- !u!95 &852982200
 Animator:
   serializedVersion: 3
@@ -1148,6 +1163,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 433045301}
         m_MethodName: ImReady
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1232939422}
+        m_MethodName: ButtonPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1657,6 +1683,12 @@ MonoBehaviour:
   m_Spacing: 3
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
+--- !u!114 &1232939422 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013244888306, guid: c0afe18501579b147abd4f0f2d7c72c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1859910127}
+  m_Script: {fileID: 11500000, guid: c7afa5a728858da4b84b3aa031763313, type: 3}
 --- !u!1001 &1297784669
 Prefab:
   m_ObjectHideFlags: 0
@@ -1799,7 +1831,6 @@ GameObject:
   - 95: {fileID: 1437057535}
   - 111: {fileID: 1437057536}
   - 82: {fileID: 1437057538}
-  - 114: {fileID: 1437057537}
   m_Layer: 0
   m_Name: Gun_Peruvian
   m_TagString: Untagged
@@ -1884,17 +1915,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1437057537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1437057532}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bb5dd610d155141891fc62bc54717f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1437057538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2116,105 +2136,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71df755c205061f4f8caa631bac0abe6, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1600802411
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 828.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 541
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012952836248, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012398142236, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_Name
-      value: GameManager (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: DoppioSparo
-      value: 
-      objectReference: {fileID: 8300000, guid: 31321833f5c0f324bbe0806521857276, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: DuelWhistle
-      value: 
-      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: GunExplosion
-      value: 
-      objectReference: {fileID: 8300000, guid: 3ddf7d826aee96a4c8513dcf605a22da, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: HowlingWind
-      value: 
-      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: ProjectileDodged
-      value: 
-      objectReference: {fileID: 8300000, guid: cc97f48995d28204992f4ffb01d25def, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Ricarica
-      value: 
-      objectReference: {fileID: 8300000, guid: 9028a1f9c8120c442805801b7c6bea40, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Sparo
-      value: 
-      objectReference: {fileID: 8300000, guid: 6be6ea9822702b6419be83f977690980, type: 3}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Cilecca
-      value: 
-      objectReference: {fileID: 8300000, guid: 8d3aa909c41bd2e43b3aafd725542155, type: 3}
-    - target: {fileID: 1000014003670130, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012398142236, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
-      propertyPath: m_TagString
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011583805086, guid: c0afe18501579b147abd4f0f2d7c72c4,
-        type: 2}
-      propertyPath: Heal
-      value: 
-      objectReference: {fileID: 8300000, guid: 58962d2425a12ad4cb642b30903f6e7f, type: 3}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1630597922
 GameObject:
@@ -2502,38 +2423,40 @@ Prefab:
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 8f883bf448072b74b92d46c3fe1cb973, type: 3}
     - target: {fileID: 82000012578926652, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 24300001, guid: 62cf3f7c5d8bd2f4591adcffb145f040,
+        type: 2}
     - target: {fileID: 114000013244888306, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: ButtonPressed
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 23ff74b0b909bb9499bf4ca9f333ebc0, type: 3}
     - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 24300001, guid: 62cf3f7c5d8bd2f4591adcffb145f040,
+        type: 2}
     - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 369b274a64f386942a71444776d5c809, type: 3}
     - target: {fileID: 114000010013093476, guid: c0afe18501579b147abd4f0f2d7c72c4,
         type: 2}
       propertyPath: DoppioSparo
@@ -2579,6 +2502,24 @@ Prefab:
       propertyPath: ButtonPressed
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012398142236, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014003670130, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013122650062, guid: c0afe18501579b147abd4f0f2d7c72c4,
+        type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
@@ -2594,7 +2535,6 @@ GameObject:
   - 95: {fileID: 1925476111}
   - 111: {fileID: 1925476114}
   - 82: {fileID: 1925476116}
-  - 114: {fileID: 1925476115}
   m_Layer: 0
   m_Name: Gun_Mexican
   m_TagString: Untagged
@@ -2679,17 +2619,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1925476115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1925476110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019816dd7b584a14ab20941f8a2eaca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1925476116
 AudioSource:
   m_ObjectHideFlags: 0
