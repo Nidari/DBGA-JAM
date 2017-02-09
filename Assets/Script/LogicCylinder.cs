@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+public enum WhichPlayer { player1,player2}
 public class LogicCylinder : MonoBehaviour
 {
     private GameController gcLinker;
@@ -9,6 +10,9 @@ public class LogicCylinder : MonoBehaviour
     public PlayerControls myPlayer;
     public GameObject[] ammoBoxes = new GameObject[6];
     public float waitingTime = 2;
+
+
+    public WhichPlayer player = WhichPlayer.player1;
 
     private bool rotating = false;
 
@@ -20,9 +24,6 @@ public class LogicCylinder : MonoBehaviour
 
     [Range(0, 1)]
     private float speed = 0;
-
-    [Range(0, 1)]
-    public float ciccio = 0;
 
     public float timeToExec = 0f;
 
@@ -112,7 +113,7 @@ public class LogicCylinder : MonoBehaviour
         }
         rotating = false;
         float myTime = 0;
-        float tempTime = 1;
+        float tempTime = 2;
         int randomBullet = Random.Range(0, 6);
         myPlayer.bullet = randomBullet;
         Debug.Log(randomBullet);
@@ -121,46 +122,94 @@ public class LogicCylinder : MonoBehaviour
 
         while (myTime / tempTime < 1)
         {
-            switch (randomBullet)
+            if (player == WhichPlayer.player1)
             {
-                case 0:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 31 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                switch (randomBullet)
+                {
+                    case 0:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 31 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                case 1:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 330 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                    case 1:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 330 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                case 2:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 270 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                    case 2:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 270 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                case 3:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 210 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                    case 3:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 210 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                case 4:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 150 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                    case 4:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 150 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                case 5:
-                    myTime += Time.deltaTime;
-                    findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 90 - 360, myTime / tempTime));
-                    tamburo.transform.eulerAngles = findBullet;
-                    break;
+                    case 5:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 90 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+            }
+
+            if (player == WhichPlayer.player2)
+            {
+                switch (randomBullet)
+                {
+                    case 0:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 210 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    case 1:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 150 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    case 2:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 90 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    case 3:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, 30 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    case 4:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, -30 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    case 5:
+                        myTime += Time.deltaTime;
+                        findBullet = new Vector3(0, 0, Mathf.Lerp(myPosition.z, -90 - 360, myTime / tempTime));
+                        tamburo.transform.eulerAngles = findBullet;
+                        break;
+
+                    default:
+                        break;
+                }
             }
             yield return null;
         }

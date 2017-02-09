@@ -8,6 +8,7 @@ using UnityEngine;
 ///     - Charging = cylinder rotation & bullet picking
 ///     - Shoot = waiting for players input
 ///     - UpdateStatus = refresh all gameplay variables
+///     - AnimationPhase = wait for all animation then return to init
 ///
 /// PLAYER PHASE:
 ///     - InitPlayer = UI button click
@@ -18,7 +19,7 @@ using UnityEngine;
 ///     - AfterShoot = wait until all players shoot
 ///
 /// </summary>
-public enum GameState { InitPhase, WaitingPhase, ChargingPhase, ShootingTimer, ShootPhase, UpdateStatus }
+public enum GameState { InitPhase, WaitingPhase, ChargingPhase, ShootingTimer, ShootPhase, UpdateStatus,AnimationPhase }
 
 public class GameController : MonoBehaviour
 {
