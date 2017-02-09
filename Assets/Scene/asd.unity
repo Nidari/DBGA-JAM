@@ -530,6 +530,8 @@ MonoBehaviour:
   time: 0
   timing: 5
   whichBullet: 6
+  dodge: 0
+  iShoot: 0
 --- !u!95 &433045304
 Animator:
   serializedVersion: 3
@@ -897,9 +899,9 @@ MonoBehaviour:
   - {fileID: 1425402132}
   - {fileID: 1101548902}
   lifesPL2:
-  - {fileID: 1797949940}
-  - {fileID: 1425402132}
-  - {fileID: 1101548902}
+  - {fileID: 76553679}
+  - {fileID: 1630597924}
+  - {fileID: 719440690}
 --- !u!1 &852982196 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013909679102, guid: 71df755c205061f4f8caa631bac0abe6,
@@ -933,6 +935,8 @@ MonoBehaviour:
   time: 0
   timing: 5
   whichBullet: 6
+  dodge: 0
+  iShoot: 0
 --- !u!95 &852982200
 Animator:
   serializedVersion: 3
