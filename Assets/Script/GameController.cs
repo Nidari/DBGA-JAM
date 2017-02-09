@@ -162,7 +162,7 @@ public class GameController : MonoBehaviour
             player.opponent.startButton.gameObject.SetActive(false);
         }
 
-        if (players[0].playerLife <= 0 && players[0].playerLife <= 0)
+        if (players[0].playerLife <= 0 && players[1].playerLife <= 0)
         {
             paneGameOver.GetComponent<GOPanel>().Draw();
         }
