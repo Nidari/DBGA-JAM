@@ -19,7 +19,7 @@ public class Campana : MonoBehaviour {
 	void Update () {
         if (AnimBell.IsPlaying("Campana"))
         {
-            Audio.PlayOneShot(soundContainer.Campana);
+            //Audio.PlayOneShot(soundContainer.Campana);
         }
     }
 }

@@ -894,6 +894,8 @@ MonoBehaviour:
   pgMexican: {fileID: 69231993}
   pgPeruvian: {fileID: 73617039}
   execTimeAnim: 2
+  soundRef: {fileID: 0}
+  AudioRef: {fileID: 0}
   lifesPL1:
   - {fileID: 1797949940}
   - {fileID: 1425402132}
@@ -2473,6 +2475,10 @@ Prefab:
     - target: {fileID: 1000012398142236, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
       propertyPath: m_TagString
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014003670130, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
