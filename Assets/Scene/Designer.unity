@@ -683,6 +683,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 298157599}
+  - 114: {fileID: 298157600}
   m_Layer: 0
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -704,6 +705,22 @@ Transform:
   - {fileID: 1416664657}
   m_Father: {fileID: 0}
   m_RootOrder: 18
+--- !u!114 &298157600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298157598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92d86d541a663f42ab2434f6acb3d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sfondo: {fileID: 1051027880}
+  GameOverPanel: {fileID: 298157598}
+  P1WinPanel: {fileID: 466738038}
+  P2WinPanel: {fileID: 279109055}
+  DrawPanel: {fileID: 1738968507}
 --- !u!1 &409931156
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +846,7 @@ MonoBehaviour:
   state: 0
   time: 0
   timing: 5
+  whichBullet: 0
 --- !u!1 &466738038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1394,7 @@ MonoBehaviour:
   state: 0
   time: 0
   timing: 5
+  whichBullet: 0
 --- !u!1 &864214692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,7 +2624,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1402708179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1001968133}
+        m_MethodName: ButtonPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1402708179
@@ -2847,7 +2877,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1425978141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1001968133}
+        m_MethodName: ButtonPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1425978141
@@ -2943,8 +2984,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437057532}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -12, y: 1.2, z: -1}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalPosition: {x: -12, y: 1.2, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_Children: []
   m_Father: {fileID: 0}
