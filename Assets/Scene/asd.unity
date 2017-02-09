@@ -1801,7 +1801,6 @@ GameObject:
   - 95: {fileID: 1437057535}
   - 111: {fileID: 1437057536}
   - 82: {fileID: 1437057538}
-  - 114: {fileID: 1437057537}
   m_Layer: 0
   m_Name: Gun_Peruvian
   m_TagString: Untagged
@@ -1886,17 +1885,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1437057537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1437057532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bb5dd610d155141891fc62bc54717f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1437057538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2482,6 +2470,10 @@ Prefab:
       propertyPath: ButtonPressed
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012398142236, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0afe18501579b147abd4f0f2d7c72c4, type: 2}
   m_IsPrefabParent: 0
@@ -2497,7 +2489,6 @@ GameObject:
   - 95: {fileID: 1925476111}
   - 111: {fileID: 1925476114}
   - 82: {fileID: 1925476116}
-  - 114: {fileID: 1925476115}
   m_Layer: 0
   m_Name: Gun_Mexican
   m_TagString: Untagged
@@ -2582,17 +2573,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1925476115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1925476110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019816dd7b584a14ab20941f8a2eaca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1925476116
 AudioSource:
   m_ObjectHideFlags: 0
