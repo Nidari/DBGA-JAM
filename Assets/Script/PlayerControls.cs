@@ -213,9 +213,7 @@ public class PlayerControls : MonoBehaviour
             yield return null;
         }
         state = PlayerState.InitPlayer;
-        gcLinker.GamePhase = GameState.InitPhase;
-        startButton.gameObject.SetActive(true);
-        opponent.startButton.gameObject.SetActive(true);
+        gcLinker.CheckGameOver(this.gameObject.GetComponent<PlayerControls>());        
     }
 
     private IEnumerator WaitingForPlayerCO()
