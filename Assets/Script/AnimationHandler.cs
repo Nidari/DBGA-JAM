@@ -65,18 +65,18 @@ public class AnimationHandler : MonoBehaviour
             case BulletType.explosion:
                 AudioRef.PlayOneShot(soundRef.GunExplosion);
                 gunPeruvian.SetBool("triggerExplosion", true);
-                pgMexican.SetBool("triggerHit", true);
+                pgPeruvian.SetBool("triggerHit", true);
 
                 break;
             case BulletType.dodge:
                 AudioRef.PlayOneShot(soundRef.ProjectileDodged);
                 gunPeruvian.SetBool("triggerDodge", true);
-                pgMexican.SetBool("triggerDodge", true);
+                pgPeruvian.SetBool("triggerDodge", true);
                 break;
             case BulletType.miss:
                // AudioRef.PlayOneShot(soundRef.Sparo);
                 gunPeruvian.SetBool("triggerCilecca", true);
-                pgMexican.SetBool("triggerCilecca", true);
+                pgPeruvian.SetBool("triggerCilecca", true);
                 break;
             case BulletType.noShoot:
                // gunMexican.SetBool("trigger", true);
@@ -107,16 +107,16 @@ public class AnimationHandler : MonoBehaviour
             case BulletType.explosion:
                 AudioRef.PlayOneShot(soundRef.GunExplosion);
                 gunMexican.SetBool("triggerExplosion", true);
-                pgPeruvian.SetBool("triggerHit", true);
+                pgMexican.SetBool("triggerHit", true);
                 break;
             case BulletType.dodge:
                 AudioRef.PlayOneShot(soundRef.ProjectileDodged);
                 gunMexican.SetBool("triggerDodge", true);
-                pgPeruvian.SetBool("triggerDodge", true);
+                pgMexican.SetBool("triggerDodge", true);
                 break;
             case BulletType.miss:
                 gunMexican.SetBool("triggerCilecca", true);
-                pgPeruvian.SetBool("triggerCilecca", true);
+                pgMexican.SetBool("triggerCilecca", true);
                 break;
             case BulletType.noShoot:
                 //gunPeruvian.SetBool("triggerFire", true);
@@ -152,10 +152,10 @@ public class AnimationHandler : MonoBehaviour
         {
             cuori.enabled = false;
         }
-        //for (int i = 0; i < pl1.playerLife; i++)
-        //{
-        //    lifesPL1[i].enabled = true;
-        //}
+        for (int i = 0; i < pl1.playerLife; i++)
+        {
+            lifesPL1[i].enabled = true;
+        }
     }
 
     private void LifeChangePL2()
@@ -164,9 +164,9 @@ public class AnimationHandler : MonoBehaviour
         {
             cuori.enabled = false;
         }
-        //for (int i = 0; i < pl2.playerLife; i++)
-        //{
-        //    lifesPL2[i].enabled = true;
-        //}
+        for (int i = 0; i < pl2.playerLife; i++)
+        {
+            lifesPL2[i].enabled = true;
+        }
     }
 }
