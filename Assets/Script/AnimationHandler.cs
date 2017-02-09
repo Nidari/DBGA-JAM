@@ -59,16 +59,16 @@ public class AnimationHandler : MonoBehaviour
                 break;
             case BulletType.explosion:
                 gunPeruvian.SetBool("triggerExplosion", true);
-                pgMexican.SetBool("triggerHit", true);
+                pgPeruvian.SetBool("triggerHit", true);
 
                 break;
             case BulletType.dodge:
                 gunPeruvian.SetBool("triggerDodge", true);
-                pgMexican.SetBool("triggerDodge", true);
+                pgPeruvian.SetBool("triggerDodge", true);
                 break;
             case BulletType.miss:
                 gunPeruvian.SetBool("triggerCilecca", true);
-                pgMexican.SetBool("triggerCilecca", true);
+                pgPeruvian.SetBool("triggerCilecca", true);
                 break;
             case BulletType.noShoot:
                // gunMexican.SetBool("trigger", true);
@@ -95,15 +95,15 @@ public class AnimationHandler : MonoBehaviour
                 break;
             case BulletType.explosion:
                 gunMexican.SetBool("triggerExplosion", true);
-                pgPeruvian.SetBool("triggerHit", true);
+                pgMexican.SetBool("triggerHit", true);
                 break;
             case BulletType.dodge:
                 gunMexican.SetBool("triggerDodge", true);
-                pgPeruvian.SetBool("triggerDodge", true);
+                pgMexican.SetBool("triggerDodge", true);
                 break;
             case BulletType.miss:
                 gunMexican.SetBool("triggerCilecca", true);
-                pgPeruvian.SetBool("triggerCilecca", true);
+                pgMexican.SetBool("triggerCilecca", true);
                 break;
             case BulletType.noShoot:
                 //gunPeruvian.SetBool("triggerFire", true);

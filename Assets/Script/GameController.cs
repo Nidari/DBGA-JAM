@@ -78,4 +78,36 @@ public class GameController : MonoBehaviour
             hasShoot = value;
         }
     }
+    
+    public void DamageResoulution()
+    {
+        foreach (var player in players)
+        {
+            if (!player.opponent.dodge && player.iShoot)
+            {
+                switch (player.whichBullet)
+                {
+                    case BulletType.fire:
+                    player.opponent.playerLife -= 1;
+                    break;
+                    case BulletType.doubleFire:
+                    player.opponent.playerLife -= 2;
+                    break;
+                    case BulletType.heal:
+                    if (player.opponent.playerLife < 3)
+                    {
+                        player.opponent.playerLife += 1;
+                    }
+                    break;
+                    case BulletType.explosion:
+                    player.playerLife -= 1;
+                    break;
+                    
+                }
+            }
+            //player.whichBullet = BulletType.noShoot;
+            player.opponent.dodge = false;
+            player.iShoot = false;
+        }
+    }
 }
