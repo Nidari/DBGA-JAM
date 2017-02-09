@@ -6,12 +6,11 @@ public enum PlayerState { InitPlayer, Starting, Charge, Shoot, AfterShoot }
 
 public enum BulletType
 {
-    fire,doubleFire,heal,explosion,dodge,miss,noShoot
+    fire, doubleFire, heal, explosion, dodge, miss, noShoot
 }
 
 public class PlayerControls : MonoBehaviour
 {
-
     public GameObject[] bullets = new GameObject[6];
     public int currentBullet;
     public LogicCylinder logicLinker;
@@ -23,8 +22,10 @@ public class PlayerControls : MonoBehaviour
     public float time = 0;
     public float timing = 5;
     private GameController gcLinker;
-    AnimationHandler ahLinker;
+    private AnimationHandler ahLinker;
     public BulletType whichBullet;
+    public bool dodge = false;
+    public bool iShoot = false;
 
     public int bullet
     {
@@ -62,32 +63,37 @@ public class PlayerControls : MonoBehaviour
         switch (idBullet)
         {
             case 1:
-                opponent.playerLife -= 1;
-                Debug.Log("opponent perde un punto vita");
-                break;
+            //opponent.playerLife -= 1;
+            Debug.Log("opponent perde un punto vita");
+            break;
 
             case 2:
-                opponent.playerLife -= 2;
-                Debug.Log("opponent perde due punti vita");
-                break;
+            //opponent.playerLife -= 2;
+            Debug.Log("opponent perde due punti vita");
+            break;
 
             case 3:
-                Debug.Log("opponent viene curato");
-                opponent.playerLife += 1;
-                break;
+            Debug.Log("opponent viene curato");
+            //if (opponent.playerLife < 3)
+            //{
+            //    opponent.playerLife += 1;
+            //}
+
+            break;
 
             case 4:
-                Debug.Log("Miss");
-                break;
+            Debug.Log("Miss");
+            break;
 
             case 5:
-                playerLife -= 1;
-                Debug.Log("explodi");
-                break;
+            //playerLife -= 1;
+            Debug.Log("explodi");
+            break;
 
             case 6:
-                Debug.Log("dodge");
-                break;
+                dodge = true;
+            Debug.Log("dodge");
+            break;
         }
     }
 
@@ -95,19 +101,21 @@ public class PlayerControls : MonoBehaviour
     {
         if (state == PlayerState.Shoot)
         {
+            iShoot = true;
             state = PlayerState.AfterShoot;
             gcLinker.GamePhase = GameState.UpdateStatus;
             ShootWithBullet(currentBullet);
+
             //StartCoroutine(WaitForAnotherMatchCO());
             if (gcLinker.HasShoot)
             {
                 gcLinker.GamePhase = GameState.AnimationPhase;
+                gcLinker.DamageResoulution();
                 ahLinker.AnimationUpdate();
-
+                
                 // Fai animazioni o qui
             }
             gcLinker.HasShoot = true;
-            
         }
         /*else if (state == PlayerState.AfterShoot )
         {
@@ -118,82 +126,83 @@ public class PlayerControls : MonoBehaviour
 
     private void ShootWithBullet(int choosedBullet)
     {
+        choosedBullet = 0;
         GameObject go;
         switch (choosedBullet)
         {
             case 0:
-                
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
 
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 240);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 240);
+            go.AddComponent<ShootBrain>();
+            break;
 
             case 1:
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 300);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 300);
+            go.AddComponent<ShootBrain>();
+            break;
 
             case 2:
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 0);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 0);
+            go.AddComponent<ShootBrain>();
+            break;
 
             case 3:
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 90);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 90);
+            go.AddComponent<ShootBrain>();
+            break;
 
             case 4:
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 135);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 135);
+            go.AddComponent<ShootBrain>();
+            break;
 
             case 5:
-                DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
-                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
-                go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
-                go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
-                Destroy(logicLinker.ammoBoxes[choosedBullet]);
-                logicLinker.ammoBoxes.SetValue(go, choosedBullet);
-                go.transform.localPosition = Vector3.zero;
-                go.transform.localEulerAngles = new Vector3(0, 0, 177);
-                go.AddComponent<ShootBrain>();
-                break;
+            DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+            whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
+            go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
+            go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
+            Destroy(logicLinker.ammoBoxes[choosedBullet]);
+            logicLinker.ammoBoxes.SetValue(go, choosedBullet);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localEulerAngles = new Vector3(0, 0, 177);
+            go.AddComponent<ShootBrain>();
+            break;
         }
     }
 

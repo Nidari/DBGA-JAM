@@ -27,6 +27,7 @@ public class UiBar : MonoBehaviour
                 {                    
                     coolingDown = false;
                     gcLinker.GamePhase = GameState.AnimationPhase;
+                    gcLinker.DamageResoulution();
                     ahLinker.AnimationUpdate();
 
                     /*
