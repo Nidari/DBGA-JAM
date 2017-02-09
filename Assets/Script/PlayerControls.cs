@@ -4,8 +4,14 @@ using UnityEngine.UI;
 
 public enum PlayerState { InitPlayer, Starting, Charge, Shoot, AfterShoot }
 
+public enum BulletType
+{
+    fire,doubleFire,heal,explosion,dodge,miss,noShoot
+}
+
 public class PlayerControls : MonoBehaviour
 {
+
     public GameObject[] bullets = new GameObject[6];
     public int currentBullet;
     public LogicCylinder logicLinker;
@@ -17,7 +23,9 @@ public class PlayerControls : MonoBehaviour
     public float time = 0;
     public float timing = 5;
     private GameController gcLinker;
-    private Prova provaLinker;
+    AnimationHandler ahLinker;
+    public BulletType whichBullet;
+
     public int bullet
     {
         get { return currentBullet; }
@@ -45,8 +53,8 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
-        provaLinker = FindObjectOfType<Prova>();
         gcLinker = FindObjectOfType<GameController>();
+        ahLinker = FindObjectOfType<AnimationHandler>();
     }
 
     private void DamageHandler(int idBullet)
@@ -87,16 +95,19 @@ public class PlayerControls : MonoBehaviour
     {
         if (state == PlayerState.Shoot)
         {
-            
             state = PlayerState.AfterShoot;
             gcLinker.GamePhase = GameState.UpdateStatus;
             ShootWithBullet(currentBullet);
-            StartCoroutine(WaitForAnotherMatchCO());
+            //StartCoroutine(WaitForAnotherMatchCO());
             if (gcLinker.HasShoot)
             {
-                gcLinker.GamePhase = GameState.InitPhase;
+                gcLinker.GamePhase = GameState.AnimationPhase;
+                ahLinker.AnimationUpdate();
+
+                // Fai animazioni o qui
             }
             gcLinker.HasShoot = true;
+            
         }
         /*else if (state == PlayerState.AfterShoot )
         {
@@ -111,7 +122,10 @@ public class PlayerControls : MonoBehaviour
         switch (choosedBullet)
         {
             case 0:
+                
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -123,6 +137,7 @@ public class PlayerControls : MonoBehaviour
 
             case 1:
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -134,6 +149,7 @@ public class PlayerControls : MonoBehaviour
 
             case 2:
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -145,6 +161,7 @@ public class PlayerControls : MonoBehaviour
 
             case 3:
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -156,6 +173,7 @@ public class PlayerControls : MonoBehaviour
 
             case 4:
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -167,6 +185,7 @@ public class PlayerControls : MonoBehaviour
 
             case 5:
                 DamageHandler(logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().TypeOfShoot());
+                whichBullet = logicLinker.ammoBoxes[choosedBullet].GetComponent<ShootBrain>().bulletType;
                 go = Instantiate(gcLinker.replacingBullets[Random.Range(0, 5)]);
                 go.transform.parent = logicLinker.ammoBoxes[choosedBullet].transform.parent;
                 Destroy(logicLinker.ammoBoxes[choosedBullet]);
@@ -178,15 +197,6 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        //provaLinker.StateUpdate();
-    }
     private IEnumerator WaitForAnotherMatchCO()
     {
         while (gcLinker.GamePhase == GameState.UpdateStatus)
@@ -198,6 +208,7 @@ public class PlayerControls : MonoBehaviour
         startButton.gameObject.SetActive(true);
         opponent.startButton.gameObject.SetActive(true);
     }
+
     private IEnumerator WaitingForPlayerCO()
     {
         while (gcLinker.GamePhase == GameState.WaitingPhase)
