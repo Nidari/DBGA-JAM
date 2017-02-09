@@ -18,6 +18,7 @@ public class AudioContainer : MonoBehaviour {
     public AudioClip Ricarica;
     public AudioClip Sparo;
     public AudioClip Cilecca;
+    public AudioClip Heal;
 
     // Use this for initialization
     void Start () {

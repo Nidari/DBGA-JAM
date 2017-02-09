@@ -13,6 +13,8 @@ public class AnimationHandler : MonoBehaviour
     public Animator pgMexican;
     public Animator pgPeruvian;
     public float execTimeAnim = 3;
+    public AudioContainer soundRef;
+    public AudioSource AudioRef;
 
     public Image[] lifesPL1;
 
@@ -23,8 +25,8 @@ public class AnimationHandler : MonoBehaviour
     {
         gcLinker = FindObjectOfType<GameController>();
         //lifePanleLinker = GetComponentsInChildren<GameObject>();
-
-
+        soundRef = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioContainer>();
+       AudioRef= GameObject.FindGameObjectWithTag("GameManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,28 +47,34 @@ public class AnimationHandler : MonoBehaviour
         switch (pl1.whichBullet)
         {
             case BulletType.fire:
+                AudioRef.PlayOneShot(soundRef.Sparo);
                 gunPeruvian.SetBool("triggerFire", true);
                 pgMexican.SetBool("triggerHit", true);
                 
                 break;
             case BulletType.doubleFire:
+                AudioRef.PlayOneShot(soundRef.DoppioSparo);
                 gunPeruvian.SetBool("triggerDoubleFire", true);
                 pgMexican.SetBool("triggerHit", true);
                 break;
             case BulletType.heal:
+                AudioRef.PlayOneShot(soundRef.Heal);
                 gunPeruvian.SetBool("triggerFire", true);
                 pgMexican.SetBool("triggerHit", true);
                 break;
             case BulletType.explosion:
+                AudioRef.PlayOneShot(soundRef.GunExplosion);
                 gunPeruvian.SetBool("triggerExplosion", true);
                 pgMexican.SetBool("triggerHit", true);
 
                 break;
             case BulletType.dodge:
+                AudioRef.PlayOneShot(soundRef.ProjectileDodged);
                 gunPeruvian.SetBool("triggerDodge", true);
                 pgMexican.SetBool("triggerDodge", true);
                 break;
             case BulletType.miss:
+               // AudioRef.PlayOneShot(soundRef.Sparo);
                 gunPeruvian.SetBool("triggerCilecca", true);
                 pgMexican.SetBool("triggerCilecca", true);
                 break;
@@ -82,22 +90,27 @@ public class AnimationHandler : MonoBehaviour
         switch (pl2.whichBullet)
         {
             case BulletType.fire:
+                AudioRef.PlayOneShot(soundRef.Sparo);
                 gunMexican.SetBool("triggerFire", true);
                 pgPeruvian.SetBool("triggerHit", true);
                 break;
             case BulletType.doubleFire:
+                AudioRef.PlayOneShot(soundRef.DoppioSparo);
                 gunMexican.SetBool("triggerDoubleFire", true);
                 pgPeruvian.SetBool("triggerHit", true);
                 break;
             case BulletType.heal:
+                AudioRef.PlayOneShot(soundRef.Heal);
                 gunMexican.SetBool("triggerFire", true);
                 pgPeruvian.SetBool("triggerHit", true);
                 break;
             case BulletType.explosion:
+                AudioRef.PlayOneShot(soundRef.GunExplosion);
                 gunMexican.SetBool("triggerExplosion", true);
                 pgPeruvian.SetBool("triggerHit", true);
                 break;
             case BulletType.dodge:
+                AudioRef.PlayOneShot(soundRef.ProjectileDodged);
                 gunMexican.SetBool("triggerDodge", true);
                 pgPeruvian.SetBool("triggerDodge", true);
                 break;

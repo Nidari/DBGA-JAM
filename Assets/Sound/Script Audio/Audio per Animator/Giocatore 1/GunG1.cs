@@ -19,30 +19,30 @@ public class GunG1 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Sparo"))
+        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Fire"))
         {
             Audio.PlayOneShot(soundContainer.Sparo);
         }
 
-        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Schivata"))
+        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Dodge"))
         {
             Audio.PlayOneShot(soundContainer.ProjectileDodged);
         }
 
-        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("DoppioSparo"))
+        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("DoubleFire"))
         {
             Audio.PlayOneShot(soundContainer.DoppioSparo);
         }
 
-        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Esplosione"))
+        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Explosion"))
         {
             Audio.PlayOneShot(soundContainer.GunExplosion);
         }
 
-        if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Cilecca"))
-        {
-            Audio.PlayOneShot(soundContainer.Cilecca);
-        }
+        //if (GunAnimator1.GetCurrentAnimatorStateInfo(0).IsName("Cilecca"))
+        //{
+        //    Audio.PlayOneShot(soundContainer.Cilecca);
+        //}
 
     }
 }
