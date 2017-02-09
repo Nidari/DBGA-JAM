@@ -139,10 +139,10 @@ public class AnimationHandler : MonoBehaviour
         {
             cuori.enabled = false;
         }
-        //for (int i = 0; i < pl1.playerLife; i++)
-        //{
-        //    lifesPL1[i].enabled = true;
-        //}
+        for (int i = 0; i < pl1.playerLife; i++)
+        {
+            lifesPL1[i].enabled = true;
+        }
     }
 
     private void LifeChangePL2()
@@ -151,9 +151,9 @@ public class AnimationHandler : MonoBehaviour
         {
             cuori.enabled = false;
         }
-        //for (int i = 0; i < pl2.playerLife; i++)
-        //{
-        //    lifesPL2[i].enabled = true;
-        //}
+        for (int i = 0; i < pl2.playerLife; i++)
+        {
+            lifesPL2[i].enabled = true;
+        }
     }
 }
