@@ -11,6 +11,8 @@ public class LogicCylinder : MonoBehaviour
     public GameObject[] ammoBoxes = new GameObject[6];
     public float waitingTime = 2;
 
+    public GameObject GunPinMexican;
+    public GameObject GunPinMPeruvian;
 
     public WhichPlayer player = WhichPlayer.player1;
 
@@ -62,6 +64,9 @@ public class LogicCylinder : MonoBehaviour
 
     public IEnumerator MovingCylinderCO()
     {
+        GunPinMexican.SetActive(true);
+        GunPinMPeruvian.SetActive(true);
+
         speed = 0;
         hideTime = 0;
         foreach (var ammo in ammoBoxes)
@@ -74,10 +79,14 @@ public class LogicCylinder : MonoBehaviour
             {
                 speed += Time.deltaTime;
                 this.transform.position = Vector3.Lerp(myInitialPosition, positionInScene.position, speed / timeToExec);
+                
             }
             yield return null;
         }
         StartCoroutine(RotateCylinderCO());
+       
+
+
     }
 
     public IEnumerator MovingOutCylinderCO()
