@@ -91,6 +91,8 @@ public class LogicCylinder : MonoBehaviour
 
     public IEnumerator MovingOutCylinderCO()
     {
+        GunPinMexican.SetActive(false);
+        GunPinMPeruvian.SetActive(false);
         speed = 0;
         yield return new WaitForSeconds(1.5f);
         while (speed < timeToExec)

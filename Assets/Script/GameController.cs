@@ -150,13 +150,13 @@ public class GameController : MonoBehaviour
         {
             gameOver = true;
             paneGameOver.SetActive(true);
-            if (player.logicLinker.player == WhichPlayer.player1)
-            {
-                paneGameOver.GetComponent<GOPanel>().P1Win();
-            }
-            else
+            if (player.logicLinker.player == WhichPlayer.player1 && player.playerLife <= 0)
             {
                 paneGameOver.GetComponent<GOPanel>().P2Win();
+            }
+            else if(player.logicLinker.player == WhichPlayer.player2 && player.playerLife <= 0)
+            {
+                paneGameOver.GetComponent<GOPanel>().P1Win();
             }
             player.startButton.gameObject.SetActive(false);
             player.opponent.startButton.gameObject.SetActive(false);
