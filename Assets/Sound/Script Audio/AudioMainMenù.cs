@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(UnityEngine.AudioSource))]
 
 public class AudioMainMenù : MonoBehaviour {
@@ -31,5 +33,19 @@ public class AudioMainMenù : MonoBehaviour {
     {
         Audio.PlayOneShot(soundContainer.ButtonPressed);
     }
+
+    public void RetryButton()
+    {
+        Audio.PlayOneShot(soundContainer.ButtonPressed);
+        SceneManager.LoadScene(1);
+    }
+
+    public void ExitButton()
+    {
+        Audio.PlayOneShot(soundContainer.ButtonPressed);
+        SceneManager.LoadScene(0);
+    }
+
+
 
 }
