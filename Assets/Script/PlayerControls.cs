@@ -126,7 +126,7 @@ public class PlayerControls : MonoBehaviour
 
     private void ShootWithBullet(int choosedBullet)
     {
-        choosedBullet = 0;
+        
         GameObject go;
         switch (choosedBullet)
         {
