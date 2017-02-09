@@ -29,7 +29,13 @@ public class GameController : MonoBehaviour
     public float timeToShoot = 3;
     private PlayerControls[] players;
     public GameObject[] replacingBullets = new GameObject[6];
+    GameObject paneGameOver;
     bool gameOver = false;
+    void Awake()
+    {
+        paneGameOver = FindObjectOfType<GOPanel>().gameObject;
+        paneGameOver.SetActive(false);
+    }
 
     // Use this for initialization
     private void Start()
@@ -143,9 +149,22 @@ public class GameController : MonoBehaviour
         else
         {
             gameOver = true;
-            Debug.Log("Game ova");
+            paneGameOver.SetActive(true);
+            if (player.logicLinker.player == WhichPlayer.player1)
+            {
+                paneGameOver.GetComponent<GOPanel>().P1Win();
+            }
+            else
+            {
+                paneGameOver.GetComponent<GOPanel>().P2Win();
+            }
             player.startButton.gameObject.SetActive(false);
             player.opponent.startButton.gameObject.SetActive(false);
+        }
+
+        if (players[0].playerLife <= 0 && players[0].playerLife <= 0)
+        {
+            paneGameOver.GetComponent<GOPanel>().Draw();
         }
         
     }
