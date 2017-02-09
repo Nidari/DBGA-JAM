@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour {
 
     AudioSource audioSourceLinker;
-   public  AudioClip audioClipLinker;
+    public  AudioClip audioClipLinker;
     bool loading = false;
 
     void Awake()
@@ -45,5 +45,6 @@ public void StartG()
         SceneManager.LoadScene(1);
 
     }
+		
 
 }
